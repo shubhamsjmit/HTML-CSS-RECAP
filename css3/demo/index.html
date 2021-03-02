@@ -1,0 +1,323 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, user-scalable=yes" />
+    <title>CSS3 Demos</title> 
+    <link rel="stylesheet" href="./styles/style.css"> 
+    <style>
+        @font-face {
+            font-family: Agarh;
+            src: url('./fonts/Aaargh-webfont.woff') format('woff'); 
+        }
+        @font-face {
+            font-family: DJ;
+            src: url('./fonts/DJ-webfont.woff') format('woff'); 
+        }
+        body{
+            font-family: Agarh;
+        }
+        #title, #subtitle {
+            font-family: DJ;
+        }
+        #title {
+            text-shadow: 0.16em 0.16em 0.5em #AA5500;
+        }
+        h1,h2 {
+            text-shadow: 0.016em 0.016em 0.25em #AA5500;
+        }
+        nav a {
+            text-shadow: 0.16em 0.16em 0.16em #FFBB77;
+        }
+        #topics li:nth-child(3n) {
+            background-color: #FFBB77;
+        }
+        #topics li:nth-child(3n-1) {
+            background-color: #FFD4A8;
+        }
+        #topics li:nth-child(3n-2) {
+            background-color: #FFEDD3;
+        }
+        #topics li h1{
+            font-size:                      1em;
+        }
+        #topics li:hover {
+            background-color:               #432100;
+            color:                          #FFEDDB;
+        }
+        #topics li:hover p {
+            display:                        inherit;
+            color:                          #AA5500;
+        }
+        article, section {
+            position:                       absolute;
+        }
+        #intro {
+            z-index:                        1;
+        }
+        #contect > *:not(:target, #intro) {
+            z-index: -1;
+        }
+        :target {
+            z-index: 2;
+        }
+        ::selection {
+            background-color: #ff8811;
+            color: #ffffff;
+        }
+        :root {
+            background-color:  #432100;
+        }
+        :required {
+            background-color:               #FFEDDB;
+        }
+        :valid {
+            background-color:               #FFFFFF;    
+        }
+        :valid::-webkit-input-placeholder {
+            color:  #AA5500;
+            font-style: italic;
+        }
+        :invalid::-webkit-input-placeholder
+        {
+            color:  #AA5500;
+            font-style: italic;
+        }
+        :not(input[type=submit]):optional {
+            border-style: dashed;
+        }
+        /* #outerDiv{
+            display: table;
+        }
+        #firstChild, #secondChild {
+            display: table-cell;
+        } */
+        /* #content {
+            display: box;
+            box-ordinal-group: 1;
+        } */
+        #topics ul {
+            column-count: 3;
+            -moz-column-count: 3;
+            -webkit-column-count: 3;
+            column-gap: 0;
+            -moz-column-gap: 0;
+            -webkit-column-gap: 0;
+        }
+        #about {
+            display: -moz-box;
+            display:-webkit-box;
+            background: url(./images/css3logo.png) no-repeat bottom left,
+                        url(./images/about_palermo_right.png) no-repeat top right,
+                        #ffffff;
+            background-size: auto, contain;
+        }
+        #title:hover {
+            opacity: .75;
+        }    
+        #subtitle {
+            opacity: .75;
+        }   
+        #subtitle:hover {
+            opacity: 1;
+        }   
+        nav a{
+            color: rgba(0, 0, 0, 0);
+        }
+        :invalid:focus {
+            background-color: rgba(63, 33, 00, .22);
+        }
+        #title {
+            color: hsla(210, 100%, 10%, .75);
+        }
+        /* body, .grad {
+            background: -ms-linear-gradient(bottom, 	            
+                                #432100 30%, 				
+                                #00AAAA 70%);
+            background: #FFFFFF; 
+            background: linear-gradient(#432100 30%, 				
+                                #00AAAA 70%); 
+
+        } */
+        input {
+            border-radius: 1em;
+        }
+        #topics ul {
+            border-radius: 2em;
+        }
+        #topics li:first-child {
+            border-top-left-radius: 2em;
+        }
+        #topics li:nth-child(4) {
+            border-bottom-left-radius: 2em;
+        }
+        #topics li:nth-child(9) {
+            border-top-right-radius: 2em;
+        }
+        #topics li:last-child {
+            border-bottom-right-radius: 2em;
+        }
+        #content {
+            border-radius: 2em;
+        }
+        #titles {
+            border-top-right-radius: 2em;
+            border-top-left-radius: 2em;
+        }
+        footer, article, section {
+            border-bottom-left-radius: 2em;
+            border-bottom-right-radius: 2em;
+        }
+        #topics ul {
+            box-shadow: 0.5em 0.5em .5em #555555;
+        }
+        input:focus {
+            box-shadow: 0 0 0.25em 0.125em #AA5500;
+        }
+        #content {
+        box-shadow:     0 0 0.5em 0.16em #555555,                  
+                        0.50em 0.50em 3em #0055AA,                  
+                        -0.25em 0 3em #0055AA;
+        }
+        #topics li:nth-child(9):hover h1 {
+            /* transform:         rotate(180deg);
+            -ms-transform:     rotate(180deg);
+            -webkit-transform: rotate(180deg); */
+            transform: scale(1.25) skew(44deg, -4deg);
+            -ms-transform: scale(1.25) skew(44deg, -4deg);
+            -webkit-transform: scale(1.25) skew(44deg, -4deg);
+        }
+        #title {
+            -webkit-transition: all 3s;
+            -ms-transition: all 3s;  
+            transition: all 3s; 
+        }
+        #title:hover {
+            color: #ffffff;
+            transform: scale(1.15);
+            -webkit-transform: scale(1.15);
+            -ms-transform: scale(1.15);
+        }
+        @media screen and (max-width:800px) {
+            body {
+                font-size: 85px;
+            }
+            #topics *{
+                border-radius: 0 !important;
+                box-shadow: none !important;
+            }
+            #topics ul {
+                column-count: unset;
+                -webkit-column-count:unset;
+            }
+            #topics li {
+                display: inline-block;
+                width: 8.125em;
+                float: left;
+                padding: 0 1.5em;
+            }
+            #subtitle{   
+                font-size:                      2em;        
+            }
+            #title {
+            -webkit-transition:              0s;
+            -ms-transition:                  0s;
+                transition:                     0s;                 
+                font-size:                      4em;               
+            }
+            #about {
+                display:                        inherit;     
+                background-position:            right bottom, right top;
+                background-size:                20%, 50%; 
+            }
+            #about p {
+                -webkit-transform:  rotate(16deg) 
+                                    translate(22em,8em) 
+                                    scale(2);
+                -ms-transform:      rotate(16deg) 
+                                    translate(22em,8em) 
+                                    scale(2);
+                transform:          rotate(16deg) 
+                                    translate(22em,8em) 
+                                    scale(2);
+            }
+            #content {
+                width: 35em;
+            }
+            nav a {
+                color:  #FFEDDB   
+            }
+            article, section, footer {
+                width: 33em;    
+            }
+            footer {
+                padding-left: 1em;
+                padding-right: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <header>
+            <hgroup id="titles">
+                <h1 id="title">CSS3 Demos</h1>
+                <h2 id="subtitle">J. Michael Palermo IV</h2>
+            </hgroup>
+            <nav>
+                <h1>Site Navigation</h1>
+                <a href="#topics">Topics</a>     
+                <a href="#about">About</a>  
+                <a href="#contact">Contact</a>
+                <a href="#intro">Intro</a>   
+            </nav>
+        </header>
+        <section id="intro">
+            <div>Welcome to CSS3 Demos!</div>
+        </section>
+        <article id="topics">
+            <h1>Experimenting with CSS3</h1>
+            <p>In this course you will see how to upgrade your styling skills by introducing CSS3 into your web sites.  
+            You will learn how to apply these techniques by observing a series of experiments!
+            Note the list of topics we will cover:
+            </p>
+            <ul>
+                <li><h1>Core           </h1><p>At the foundation of 3 is 2.1</p></li>
+                <li><h1>Selectors      </h1><p>Fine tuned control over what you target for styling</p></li>
+                <li><h1>Fonts          </h1><p>A look at how to introduce fonts you really want</p></li>
+                <li><h1>Layout         </h1><p>Another way to put all the content where it should go</p></li>
+                <li><h1>Background     </h1><p>Setting the proper mood or scene</p></li>
+                <li><h1>Colors         </h1><p>Just when you though there were no more color options</p></li>
+                <li><h1>Shadowing      </h1><p>Providing depth to what you present</p></li>
+                <li><h1>Borders        </h1><p>Round this one up, you won't feel boxed in anymore</p></li>
+                <li><h1>Transformations</h1><p>When you need to tweak things the way you like it</p></li>
+                <li><h1>Animations     </h1><p>Did something just move?  Yep</p></li>
+                <li><h1>Media Queries  </h1><p>How is this going to look on a smaller screen, or device?</p></li>
+                <li><h1>Scripting      </h1><p>Oh yeah, a little scripting won't hurt</p></li>
+            </ul>
+        </article>
+        <article id="about">
+            <header><h1>About</h1><h2>Michael Palermo</h2></header>
+            <p>Just crazy about CSS3!</p>
+        </article>
+        <section id="contact" class="grad">
+            <h1>Contact</h1>
+            <form>
+                <input id="name"    name="name"     type="text"  placeholder="full name" required />
+                <input id="email"   name="email"    type="email" placeholder="email"     required />
+                <input id="submit"  name="submit"   type="submit"   value="Submit" />
+                <textarea id="comments" placeholder="comments"></textarea>
+            </form>
+        </section>
+        <footer>
+            <p>Copyright &copy; 2012 <a href="http://www.palermo4.com">Michael Palermo</a>, Don't steal! </p>
+        </footer>
+    </div>
+    <div id="div1" class="box"></div>
+    <div id="div2" class="box"></div>
+    <div id="div3" class="box"></div>
+    <div id="div4" class="box"></div>
+    <script>
+    </script>
+</body>
+</html>

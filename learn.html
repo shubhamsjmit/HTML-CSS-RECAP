@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div id="demo"/>
+<button type="button" onclick="LoadDoc()">Click Me</button>
+
+<script>
+function LoadDoc() 
+{
+	var xHttp = new XMLHttpRequest();
+	xHttp.onreadystatechange = function() {
+		if(this.readyState == 4 && this.status == 200) {
+			document.getElementById("demo").innerHTML = this.responseText;
+		}
+	}
+	xHttp.open("GET", "ajax_info.txt", true);
+	xHttp.send();
+}
+</script>
+</body>
+</html>
